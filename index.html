@@ -9,11 +9,14 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <link rel="stylesheet" href="assets/css/style.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+   <!-- google API-->
+   <meta name="google-signin-client_id" content="1028577439057-u6ctrb5o4g99oovgpabhkib43nj7oplf.apps.googleusercontent.com">
    <title>Weebs Master 2020</title>
 </head>
 
 <body>
-   <header>
+   <div id="login-page">
+      <!-- sign in dari ganang ini header -->
       <div class="container">
          <div id="branding">
             <h3><span class="highlight">Weebs</span> master manager</h3>
@@ -26,8 +29,20 @@
                <li class=""><a href="#">Sign out</a></li>
             </ul>
          </nav>
+         <!-- bawah ini ganda buat sign -->
+         <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+               <div class="card card-signin my-5">
+               <h5 class="card-title text-center">Sign In</h5>
+               <form class="form-signin">
+                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                  <a href="#" onclick="signOut();">Sign out</a>
+               </form>
+               </div>
+            </div>
+         </div>
       </div>
-   </header>
+   </div>
 
    <section id="showcase">
       <div class="container">
@@ -142,8 +157,8 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
-   <script src="assets/commmon/js/main.js"></script>
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <script src="assets/js/main.js"></script>
 </body>
 
 </html>

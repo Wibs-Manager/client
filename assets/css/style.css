@@ -159,7 +159,7 @@ header a:hover{
 /*footer*/
 footer{
    padding: 5px;
-   margin-top: 20px;
+   margin-top: 0px;
    color: white;
    background: #ff6663;
    text-align: center;
@@ -168,3 +168,36 @@ footer{
 footer p{
    margin-top: 15px;
 }
+
+
+/* landing page*/
+
+ .card-signin {
+   border: 0;
+   border-radius: 1rem;
+   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+ }
+ 
+ #login-page {
+   background: url('../img/landing-bg.jpg') no-repeat center center fixed; 
+   background-size: cover;
+   min-height: 95vh;
+ }
+
+ .card-signin .card-title {
+   margin-bottom: 2rem;
+   font-weight: 300;
+   font-size: 1.5rem;
+ }
+ 
+ .card-signin {
+   padding: 2rem;
+ }
+
+ .form-signin {
+   margin : auto;
+ }
+
+ .g-signin2 {
+   transition: all 0.2s;
+ }
