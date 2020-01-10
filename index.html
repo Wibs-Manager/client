@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+   <!-- google API-->
+   <meta name="google-signin-client_id" content="1028577439057-u6ctrb5o4g99oovgpabhkib43nj7oplf.apps.googleusercontent.com">
+   <title>Weebs Master 2020</title>
+</head>
+
+<body>
+   <!-- bawah ini ganda buat sign -->
+   <div id="login-page">
+      <div class="row">
+         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+               <h5 class="card-title text-center">Sign In</h5>
+               <form class="form-signin">
+                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- sign in dari ganang ini header -->
+   <div id="page">
+      <header>
+         <div class="container">
+            <div id="branding">
+               <h3><span class="highlight">Weebs</span> master manager</h3>
+            </div>
+            <nav>
+               <ul>
+                  <li class="id current"><a href="#anime-container" onclick="getManga()">Top manga</a></li>
+                  <li class=""><a href="#anime-container" onclick="getAnime()">Top 10 anime</a></li>
+                  <li class=""><a href="#anime-container">Favorite anime</a></li>
+                  <li class=""><a href="#" onclick="signOut();">Sign out</a></li>
+               </ul>
+            </nav>
+      </header>
+   
+      <section id="showcase">
+         <div class="container">
+            <h1>Unleashed your<span class="highlight"> Weebness!</span></h1>
+            <form>
+               <input type="text" placeholder="Search your weeb..." id="search-result">
+               <button type="submit" class="button_1" id="search-button">Submit!</button>
+            </form>
+         </div>
+      </section>
+   
+      <section id="boxes">
+         <div class="container">
+            <!-- lempar content anime di div dibawah ini -->
+            <div id='anime-container'>
+               <div class='container-fluid my-3'>
+                  <div class='row'>
+                     <div class='col-5'>
+                        <div class='border' style='border-radius: 4px; overflow: auto; max-height: 100vh;'>
+                           <!-- ini colom 1 -->
+                           <div id='jikan-topten'>
+                             
+                           </div>
+                        </div>
+                     </div>
+                     <!-- ini kolom ke 3 -->
+                     <div class='col-7' id="description">
+                     <div class="description-content">
+                     </div>
+                         </div>
+                        <!-- kolom 2 // detail -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+      </section>
+   </div>
+   
+
+   <footer>
+      <p>Weeb master manager &copy; 2020</p>
+   </footer>
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <script src="assets/js/main.js"></script>
+</body>
+
+</html>
