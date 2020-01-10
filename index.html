@@ -8,86 +8,110 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <link rel="stylesheet" href="assets/css/style.css">
+   <!-- google API-->
+   <meta name="google-signin-client_id" content="1028577439057-u6ctrb5o4g99oovgpabhkib43nj7oplf.apps.googleusercontent.com">
    <title>Weebs Master 2020</title>
 </head>
 
 <body>
-   <header>
+   <div id="login-page">
       <div class="container">
-         <div id="branding">
-            <h1><span class="highlight">Weebs</span> master manager</h1>
+         <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+               <div class="card card-signin my-5">
+               <h5 class="card-title text-center">Sign In</h5>
+               <form class="form-signin">
+                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                  <a href="#" onclick="signOut();">Sign out</a>
+               </form>
+               </div>
+            </div>
          </div>
-         <nav>
-            <ul>
-               <li class="current"><a href="#">Home</a></li>
-               <li class=""><a href="#">Sign out</a></li>
-            </ul>
-         </nav>
       </div>
-   </header>
+   </div>
 
-   <section id="showcase">
-      <div class="container">
-         <h1>Search your<span class="highlight"> favorite</span> anime</h1>
-      </div>
-      <div class="input-group">
-         <input id='input_search_repo' type="text" class="form-control" placeholder="Search repo..."></input>
-         <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-         </div>
-      </div>
-   </section>
 
-   <section id="newsletter">
-      <div class="container">
-         <h1><span class="highlight">Let's</span> join us fellas!</h1>
-         <form>
-            <input type="email" placeholder="Submit email mu..">
-            <button type="submit" class="button_1">Submit!</button>
-         </form>
-      </div>
-   </section>
 
-   <section id="boxes">
-      <div class="container">
-         <div class="box">
-            <img src="./img/illustrator_logo.png">
-            <h3>Produk 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+
+   <div id="page" class="d-none">
+      <header>
+         <div class="container">
+            <div id="branding">
+               <h1><span class="highlight">Weebs</span> master manager</h1>
+            </div>
+            <nav>
+               <ul>
+                  <li class="current"><a href="#">Home</a></li>
+                  <li class=""><a href="#">Sign out</a></li>
+               </ul>
+            </nav>
          </div>
-         <div class="box">
-            <img src="./img/photoshop_logo.png">
-            <h3>Produk 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+      </header>
+   
+   
+      <section id="showcase">
+         <div class="container">
+            <h1>Search your<span class="highlight"> favorite</span> anime</h1>
          </div>
-         <div class="box">
-            <img src="./img/premiere_logo.png">
-            <h3>Produk 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+         <div class="input-group">
+            <input id='input_search_repo' type="text" class="form-control" placeholder="Search repo..."></input>
+            <div class="input-group-append">
+               <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
          </div>
-         <div class="box">
-            <img src="./img/photoshop_logo.png">
-            <h3>Produk 4</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+      </section>
+   
+      <section id="newsletter">
+         <div class="container">
+            <h1><span class="highlight">Let's</span> join us fellas!</h1>
+            <form>
+               <input type="email" placeholder="Submit email mu..">
+               <button type="submit" class="button_1">Submit!</button>
+            </form>
          </div>
-         <div class="box">
-            <img src="./img/illustrator_logo.png">
-            <h3>Produk 5</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+      </section>
+   
+      <section id="boxes">
+         <div class="container">
+            <div class="box">
+               <!-- <img src="./img/illustrator_logo.png"> -->
+               <h3>Produk 1</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            </div>
+            <div class="box">
+               <!-- <img src="./img/photoshop_logo.png"> -->
+               <h3>Produk 2</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            </div>
+            <div class="box">
+               <!-- <img src="./img/premiere_logo.png"> -->
+               <h3>Produk 3</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            </div>
+            <div class="box">
+               <!-- <img src="./img/photoshop_logo.png"> -->
+               <h3>Produk 4</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            </div>
+            <div class="box">
+               <!-- <img src="./img/illustrator_logo.png"> -->
+               <h3>Produk 5</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            </div>
+            <div class="box">
+               <!-- <img src="./img/premiere_logo.png"> -->
+               <h3>Produk 6</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            </div>
          </div>
-         <div class="box">
-            <img src="./img/premiere_logo.png">
-            <h3>Produk 6</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-         </div>
-      </div>
-   </section>
+      </section>
+   </div>
 
    <footer>
       <p>Weeb master manager &copy; 2020</p>
@@ -101,8 +125,8 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
-   <script src="assets/commmon/js/main.js"></script>
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <script src="assets/js/main.js"></script>
 </body>
 
 </html>
