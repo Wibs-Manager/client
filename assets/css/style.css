@@ -64,6 +64,7 @@ header #branding{
 
 header #branding h1{
    margin: 0;
+   /* font-weight: bold; */
 }
 
 header nav{
@@ -142,11 +143,16 @@ header a:hover{
    text-align: center;
    width: 30%;
    padding: 10px;
+   margin-left: 15px;
 
 }
 
 #boxes .box img{
    width: 100px;
+}
+
+#boxes h2{
+   text-align: center;
 }
 
 
@@ -157,8 +163,12 @@ footer{
    color: white;
    background: #ff6663;
    text-align: center;
-
 }
+
+footer p{
+   margin-top: 15px;
+}
+
 
 /* landing page*/
 
