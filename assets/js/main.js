@@ -1,5 +1,5 @@
 let access_token
-let dataAnime
+let arrData
 // login
 let google_token = null
 function onSignIn(googleUser) {
@@ -55,21 +55,18 @@ function getAnime() {
    }
   })
     .done( data => {
-      // dataAnime = 
+      arrData = data
       let content = ``
       for (let i = 0; i < 10; i++) {
          let item = data[i];
          content += `
             <div class='repo-item p-2 border-bottom'>
               <img src='${item.image_url}'>
-               <p class='font-weight-bold' onClick="openDescription(${item.mal_id})">${item.title}</p>
+               <p class='font-weight-bold' onClick="description(${item.mal_id})">${item.title}</p>
                <div class='row'>
                   <div class='col'> ${item.score} Score</div>
                   <div class='col'>
                     <a href="#boxes" onClick="favAnime(${item.mal_id})"> Fav this anime</a>
-                     <a href="${item.url}" target="_blank">
-                        View on MyAnimeList
-                     </a>
                   </div>
                </div>
             </div>
@@ -112,33 +109,56 @@ function searchAnime(animeName){
  })
     .done(function (data) {
        console.log(data)
-      //  if (data.data.total_count) {
-      //     let content = ``
-      //     for (let i = 0; i < data.data.total_count; i++) {
-      //        let item = data.data.items[i];
-      //        content += `
-      //        <div class='repo-item p-2 border-bottom'>
-      //           <p class='font-weight-bold'>${item.full_name}</p>
-      //           <p>${item.description || '<i>No Description</i>'}</p>
-      //           <div class='row'>
-      //              <div class='col'> ${item.stargazers_count} Stars</div>
-      //              <div class='col'>
-      //                 <a href="${item.html_url}" target="_blank">
-      //                    View on github
-      //                 </a>
-      //              </div>
-      //           </div>
-      //        </div>
-      //     `
-      //     }
-      //     $('#repo-container').html(content);
-      //  } else {
-      //     $('#repo-container').html(`<p class='text-center'>Anime not found</p>`);
-      //  }
     })
     .fail(function (err) {
        console.log(err)
     });
+}
+
+function tombolSearch(){
+  $('#search-button').click(event =>{
+    $('#jikan-topten').empty('')
+    console.log(event);
+    console.log($('#search-result').val());
+    $.ajax({
+      method : 'GET',
+      url : `http://localhost:3000/anime/search/${$('#search-result').val()}`,
+    beforeSend: function () {
+       $('#repo-container').html(`<div class="d-flex justify-content-center p-3">
+       <div class="spinner-border" role="status">
+         <span class="sr-only">Loading...</span>
+       </div>
+     </div>`);
+    }
+ })
+    .done(function (data) {
+      console.log(data);
+      arrData = data
+      $('#jikan-topten').empty('')
+      let content = ``
+      for (let i = 0; i < 10; i++) {
+         let item = data.results[i];
+         content += `
+            <div class='repo-item p-2 border-bottom'>
+              <img src='${item.image_url}'>
+              <p class='font-weight-bold' onClick="description(${item.mal_id})">${item.title}</p>
+               <div class='row'>
+                  <div class='col'> ${item.score} Score</div>
+                  <div class='col'>
+                    <a href="#boxes" onClick="favAnime(${item.mal_id})"> Fav this anime</a>
+                  </div>
+               </div>
+            </div>
+         `
+      }
+      $('#jikan-topten').html(content);
+    })
+    .fail(function (err) {
+       console.log(err)
+    });
+
+    
+  })
 }
 
 function favAnime(idAnime){
@@ -158,6 +178,104 @@ function favAnime(idAnime){
   })
 }
 
+function getManga() {
+  // const token = localStorage.getItem('token')
+  $('.description-content').html('')
+  $('#jikan-topten').html('')
+  $.ajax({
+    method : 'GET',
+    url : 'http://localhost:3000/manga',
+    // headers : {
+    //   token
+    // },
+    beforeSend: function () {
+      $('#repo-container').html(`<div class="d-flex justify-content-center p-3">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>`);
+   }
+  })
+    .done( data => {
+      console.log(data);
+      arrData = data
+      let content = ``
+      for (let i = 0; i < 10; i++) {
+         let item = data.data[i];
+         console.log(item, 'iniiiiii dataaa ke ', i);
+         
+         content += `
+            <div class='repo-item p-2 border-bottom'>
+             <img src='${item.attributes.posterImage.small}'>
+               <p class='font-weight-bold' onClick="description(${item.id})">${item.attributes.titles.en}</p>
+               <div class='row'>
+                  <div class='col'> ${item.attributes.favoritesCount} Favorite count</div>
+                  <div class='col'>
+                  </div>
+               </div>
+            </div>
+         `
+      }
+      $('#jikan-topten').html(content);
+    })
+    .fail(err => {
+      console.log(err);
+    })
+}
+
+function description(id){
+  console.log(id);
+  console.log(arrData);
+  $('.description-content').html('')
+  $.ajax({
+    method : 'GET',
+    url : `http://localhost:3000/anime/${id}`,
+    beforeSend: function () {
+      $('#repo-container').html(`<div class="d-flex justify-content-center p-3">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>`);
+   }
+  })
+    .done( data => {
+      console.log(data, 'ini data dari controller');
+      let content =`
+         <div class='border' style='border-radius: 4px; overflow: auto; max-height: 100vh; padding: 2rem;'>
+         <h3>
+            ${data.title}
+         </h3>
+         <br>
+         <br>
+         <h4> Synopsis : </h4>
+         <p>
+         ${data.synopsis}
+         </p>
+      </div>
+         `
+      $('.description-content').html(content);
+    })
+    .fail(err => {
+      console.log(err);
+    })
+}
+
+function showCats(){
+  $.ajax({
+    method : 'GET',
+    url : 'http://localhost:3000/cat'
+  })
+    .done(content => {
+      console.log(content);
+      $('.description-content').append(`
+      <img src='${content}' style="max-width:100%;"></img>
+      `)
+    })
+    .fail(err => {
+      console.log(err);
+    })
+}
+
 $(document).ready(function(){
   
   const token = localStorage.getItem('token')
@@ -165,13 +283,13 @@ $(document).ready(function(){
     togglePage(1)
     toggleLogin(0)
     getAnime()
+    showCats()
   } else {
     toggleLogin(1)
     togglePage(0)
   }
   
+  tombolSearch()
 
-  $('#input_search_anime').keyup(() => {
-    setTimeout(searchAnime($('input_search_anime').val()))
-  })
+ 
 })

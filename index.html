@@ -30,124 +30,59 @@
    </div>
 
    <!-- sign in dari ganang ini header -->
-   <header>
-      <div class="container">
-         <div id="branding">
-            <h3><span class="highlight">Weebs</span> master manager</h3>
+   <div id="page">
+      <header>
+         <div class="container">
+            <div id="branding">
+               <h3><span class="highlight">Weebs</span> master manager</h3>
+            </div>
+            <nav>
+               <ul>
+                  <li class="id current"><a href="#anime-container" onclick="getManga()">Top manga</a></li>
+                  <li class=""><a href="#anime-container" onclick="getAnime()">Top 10 anime</a></li>
+                  <li class=""><a href="#anime-container">Favorite anime</a></li>
+                  <li class=""><a href="#" onclick="signOut();">Sign out</a></li>
+               </ul>
+            </nav>
+      </header>
+   
+      <section id="showcase">
+         <div class="container">
+            <h1>Unleashed your<span class="highlight"> Weebness!</span></h1>
+            <form>
+               <input type="text" placeholder="Search your weeb..." id="search-result">
+               <button type="submit" class="button_1" id="search-button">Submit!</button>
+            </form>
          </div>
-         <nav>
-            <ul>
-               <li class="id current"><a href="#">Home</a></li>
-               <li class=""><a href="#boxes" onclick="getAnime()">Top 10 anime</a></li>
-               <li class=""><a href="#boxes">Favorite anime</a></li>
-               <li class=""><a href="#" onclick="signOut();">Sign out</a></li>
-            </ul>
-         </nav>
-   </header>
-
-   <section id="showcase">
-      <div class="container">
-         <h1>Let's get<span class="highlight"> started!</span></h1>
-         <form>
-            <input type="text" placeholder="Search anime...">
-            <button type="submit" class="button_1">Submit!</button>
-         </form>
-      </div>
-   </section>
-
-   <!-- <section id="newsletter">
-      <div class="container">
-         <h1><span class="highlight">Let's</span> join us fellas!</h1>
-         <form>
-            <input type="text" placeholder="Submit email mu..">
-            <button type="submit" class="button_1">Submit!</button>
-         </form>
-      </div>
-   </section> -->
-
-   <section id="boxes">
-      <div class="container">
-         <!-- lempar content anime di div dibawah ini -->
-         <div id='anime-container'>
-            <div class='container-fluid my-3'>
-               <div class='row'>
-
-                  <!-- <div class='col-2'>
-                     <h3 class='title'>Users</h3>
-                     <div class="card">
-                        <div class="card-header"></div>
-                        <div class="card-body">
-                           <ul class='list-user p-0'>
-                              <li><a href='#' onclick="getRepo(`ganangprakoso`)">Top 10 anime</a></li>
-                              <li><a href='#' onclick="getRepo(`gandasipayung`)">Favorite anime</a></li>
-                              <li><a href='#' onclick="getRepo(`ivantjendra`)">Watch list</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div> -->
-
-                  <div class='col-6'>
-                     <div class='border' style='border-radius: 4px; overflow: auto; max-height: 100vh;'>
-                        <div class="input-group mb-3 p-2">
-                           <input id='input_search_anime' type="text" class="form-control"
-                              placeholder="Search anime askdoaksdoka."></input>
-                           <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-search"></i></span>
+      </section>
+   
+      <section id="boxes">
+         <div class="container">
+            <!-- lempar content anime di div dibawah ini -->
+            <div id='anime-container'>
+               <div class='container-fluid my-3'>
+                  <div class='row'>
+                     <div class='col-5'>
+                        <div class='border' style='border-radius: 4px; overflow: auto; max-height: 100vh;'>
+                           <!-- ini colom 1 -->
+                           <div id='jikan-topten'>
+                             
                            </div>
                         </div>
-                        <!-- ini colom yg di tengah -->
-                        <div id='jikan-topten'>
-                           <!-- lempar content ke sini  -->
-                           <!-- <div class='repo-item p-2 border-bottom'>
-                              <p class='font-weight-bold'>Fate Stay Night: Unlimited Blade Work</p>
-                              <p><i>The story revolves around Shirou Emiya, a hardworking and honest teenager who
-                                    unwillingly enters a to-the-death battle royale called the Fifth Holy Grail War,
-                                    where combatants fight with magic and Heroes throughout history for a chance to have
-                                    their wishes granted. Orphaned and the sole survivor of a massive fire in Fuyuki
-                                    City as a child, Shirou was taken in by a retired magus named Kiritsugu Emiya, who
-                                    died some years later. Shirou's feelings of responsibility for those who died and
-                                    his own salvation through his father formed a strong desire for justice and peace in
-                                    him. </i></p>
-                              <div class='row'>
-                                 <div class='col'>Score 9.04</div>
-                                 <div class='col'>
-                                    <a href="https://www.youtube.com/watch?v=NooIc3dMncc" target="_blank">
-                                       View trailer
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class='repo-item p-2 border-bottom'>
-                              <p class='font-weight-bold'>Fate Stay Night: Unlimited Blade Work</p>
-                              <p><i>The story revolves around Shirou Emiya, a hardworking and honest teenager who
-                                    unwillingly enters a to-the-death battle royale called the Fifth Holy Grail War,
-                                    where combatants fight with magic and Heroes throughout history for a chance to have
-                                    their wishes granted. Orphaned and the sole survivor of a massive fire in Fuyuki
-                                    City as a child, Shirou was taken in by a retired magus named Kiritsugu Emiya, who
-                                    died some years later. Shirou's feelings of responsibility for those who died and
-                                    his own salvation through his father formed a strong desire for justice and peace in
-                                    him. </i></p>
-                              <div class='row'>
-                                 <div class='col'>Score 9.04</div>
-                                 <div class='col'>
-                                    <a href="https://www.youtube.com/watch?v=NooIc3dMncc" target="_blank">
-                                       View trailer
-                                    </a>
-                                 </div>
-                              </div>
-                           </div> -->
-                        
-                        </div>
                      </div>
-                  </div>
-                  <!-- ini kolom ke 3 -->
-                  <div class='col-6'>col3
-                     <!-- lempar content ke sini -->
+                     <!-- ini kolom ke 3 -->
+                     <div class='col-7' id="description">
+                     <div class="description-content">
+                     </div>
+                         </div>
+                        <!-- kolom 2 // detail -->
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-   </section>
+      </section>
+   </div>
+   
 
    <footer>
       <p>Weeb master manager &copy; 2020</p>
